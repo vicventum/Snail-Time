@@ -1,0 +1,37 @@
+// imports
+@font-face {
+    font-family: 'Adventure Time';
+    src: url('../../font/Adventure\ Time\ Logo.ttf');
+}
+// Reset
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    // background-color: $dark;
+    scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    font-family: var(--f-adventure, sans-serif);
+    background-color: rgb(255, 218, 0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    overflow: hidden;
+    cursor: zoom-in;
+}

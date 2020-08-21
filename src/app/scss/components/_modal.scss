@@ -1,0 +1,67 @@
+.modal {
+    position: fixed;
+    z-index: var(--levelMax);
+    top: 0;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.945);
+
+    &--start {
+        padding-top: 20px;
+        padding-left: 20px;
+        left: 0;
+        text-align: center;
+        @extend %flex-center;
+    
+        transition: opacity 2s;
+        opacity: var(--visibleModalStart);
+        display: var(--displayModalStart);
+        // opacity: 1;
+        // display: block;
+    
+        &__content {
+
+            transform: rotate(-20deg);
+    
+            h1 {
+                padding: 0 50px;
+            }
+            span {
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }
+        }
+    }
+
+    &--end {
+        right: 0;
+        @extend %contenido-modal;
+        text-align: center;
+        margin-top: 50px ;
+        margin-right: 50px;
+        width: 300px;
+        height: 300px;
+        box-shadow: 0px 20px 20px -15px var(--dark);
+        // transform: rotate(20deg);
+    
+        transition: transform 2s;
+        transform: rotate(20deg) scale(var(--scaleModalEnd));
+    
+        h1 {
+            margin: 0;
+        }
+        span {
+            font-family: var(--f-impact);
+        }
+    }
+
+    &--content {
+        background-color: var(--jake);
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        @extend %flex-center;
+        flex-direction: column;
+        
+    }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "find_the_snail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init": "parcel src/index.html",
+    "save-dev": "npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/plugin-transform-runtime sass postcss-modules autoprefixer",
+    "save": "npm install --save @babel/runtime core-js include-media",
+    "build": "parcel build ./src/index.html --out-dir public",
+    "deploy": "firebase deploy"
+  },
+  "keywords": [
+    "javascript",
+    "sass",
+    "game"
+  ],
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "overrideBrowserslist": [
+          ">1%",
+          "last 4 versions",
+          "Firefox ESR",
+          "ie > 9"
+        ]
+      },
+      "rfs": {}
+    }
+  },
+  "author": "Victor Alvarez <vicventum.dev@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "core-js": "^3.6.5",
+    "include-media": "^1.4.9"
+  }
+}

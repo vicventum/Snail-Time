@@ -1,0 +1,9 @@
+.nose {
+    overflow: hidden;
+    position: relative;
+    z-index: var(--levelMid);
+
+    transition: transform .5s ease-in-out;
+    transform: rotate(var(--turnsNose));
+    cursor: pointer;
+}

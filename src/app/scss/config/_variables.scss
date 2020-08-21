@@ -1,0 +1,51 @@
+// Variables
+:root {
+  // Fuente
+  --f-adventure: 'Adventure Time';
+  --f-impact: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
+  // Colores
+  --jake: hsl(51, 100%, 50%);
+  --finn: hsl(198, 71%, 75%);
+  --finnDark: hsl(198, 100%, 75%);
+  --princess: hsl(347, 87%, 65%);
+  --princessDark: hsl(347, 100%, 56%);
+  --dark: #000;
+  --light: #fff;
+
+  // Measures
+  --levelMax: 1000;
+  --levelMid: 100;
+  --levelMin: 10;
+
+  // Variables for Jake
+  --xL: 0;
+  --yL: 0;
+  --xR: 0;
+  --yR: 0;
+  --scale: 1;
+  --turnsNose: 0turn;
+  --turnsFace: 0turn;
+  --halfPoint: 75;
+
+  // Variables for Caracolito
+  --sizeSnail: 100;
+  --visible: 0.0;
+  --snailX: 0;
+  --snailY: 0;
+  --scaleSnail: 1;
+
+  // Variables for modals
+  --visibleModalStart: 1;
+  --displayModalStart: block;
+  --scalModalEnd: 0;
+  // --displayModalFin: none;
+}
+
+// Breakpoints
+$breakpoints: (
+  'phone': 350px,
+  'tablet': 768px,
+  'laptop': 1024px,
+  'desktop': 1400px
+) !default;

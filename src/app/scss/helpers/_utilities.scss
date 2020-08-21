@@ -1,0 +1,32 @@
+// extends
+%flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.u {
+
+    
+    
+    // Visibility
+    &-none { display: none; }
+    &-invisible { overflow: hidden; }
+
+    &-hide-for-mobile {
+        // Hide for tablet and mobile
+        @include media('<tablet') {
+            display: none!important;
+        }
+    }
+    &-hide-for-desktop {
+        // Hide for desktop viewport widths
+        @include media('>=tablet') {
+            display: none!important;
+        }
+    }
+    
+    
+    
+}

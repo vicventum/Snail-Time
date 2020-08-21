@@ -1,0 +1,22 @@
+.face {
+    // border: 1px solid rgba(0, 0, 0, 0.445);
+    box-shadow: 0px -10px 20px -17px var(--dark);
+    @extend %flex-center;
+    
+    
+
+    width:  450px;
+    height: 450px;
+    padding: 30px 30px 0;
+    margin-bottom: -9vh;
+    bottom: 0;
+    border-radius: 220px;
+
+    flex-direction: column;
+
+    position: relative;
+
+    transition: transform 1s ease-in-out;
+    transform: rotate(var(--turnsFace));
+    cursor: pointer;
+}

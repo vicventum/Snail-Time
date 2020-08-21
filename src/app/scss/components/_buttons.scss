@@ -1,0 +1,32 @@
+.btn {
+    display: inline-block;
+    padding: 0.4rem 1.3rem;
+    margin-right: 0.5rem;
+
+    font-size: 2rem;
+    color: var(--light);
+    text-decoration: none;
+
+    background-color: transparent;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    outline: none;
+
+    transition: background-color 0.2s ease-in;
+
+    &--yes {
+        background-color: var(--finn);
+        
+        &:hover {
+            background-color: var(--finnDark);
+        }
+    }
+    &--no {
+        background-color: var(--princess);
+        
+        &:hover {
+            background-color: var(--princessDark);
+        }
+    }
+}

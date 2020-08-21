@@ -1,0 +1,290 @@
+// imports
+@font-face {
+    font-family: 'Hora de Aventura';
+    src: url('../font/Adventure\ Time\ Logo.ttf');
+}
+// Variables
+:root {
+    // Fuente
+    --fuente: 'Hora de Aventura';
+    // Colores
+    --dark: #000;
+    --light: #fff;
+    --jake: #ffda00;
+    --finn: hsl(198, 71%, 75%);
+    --finnDark: hsl(198, 100%, 75%);
+    --princesa: hsl(347, 87%, 65%);
+    --princesaDark: hsl(347, 100%, 56%);
+    // Medidas
+    --nivelMax: 1000;
+    --nivelMed: 100;
+    --nivelMin: 10;
+
+    // Variables para Jake
+    --xIzq: 0;
+    --yIzq: 0;
+    --xDer: 0;
+    --yDer: 0;
+    --escala: 1;
+    --vueltasBigote: 0turn;
+    --vueltasCara: 0turn;
+    --puntoMedio: 75;
+    // Variables para Caracolito
+    --tamanioCaracolito: 100;
+    --visible: 0.0;
+    --caracolitoX: 0;
+    --caracolitoY: 0;
+    --escalaCaracolito: 1;
+    // Variables para modales
+    --visibleModalInicio: 1;
+    --displayModalInicio: block;
+    --escalaModalFin: 0;
+    // --displayModalFin: none;
+}
+// Variables Sass
+$fuente: var(--fuente);
+$nivelMax: var(--nivelMax);
+$nivelMed: var(--nivelMed);
+$nivelMin: var(--nivelMin);
+$dark: var(--dark);
+$light: var(--light);
+$jake: var(--jake);
+$finn: var(--finn);
+$princesa: var(--princesa);
+$finnDark: var(--finnDark);
+$princesaDark: var(--princesaDark);
+$escala: var(--escala);
+$escalaCaracolito: var(--escalaCaracolito);
+$visible: var(--visible);
+$visibleModalInicio: var(--visibleModalInicio);
+$displayModalInicio: var(--displayModalInicio);
+$escalaModalFin: var(--escalaModalFin);
+// $displayModalFin: var(--displayModalFin);
+
+// Estilos Generales
+body {
+    font-family: $fuente;
+    // font-family: sans-serif;
+    background-color: rgb(255, 218, 0);
+    box-sizing: border-box;
+    margin: 0;
+
+    // @extend %flex-center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    
+    overflow: hidden;
+    cursor: zoom-in;
+
+    position: relative;
+}
+
+// Utilidades y @extends
+.btn {
+    display: inline-block;
+    background-color: transparent;
+    color: $light;
+    text-decoration: none;
+    padding: 0.4rem 1.3rem;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-right: 0.5rem;
+    outline: none;
+    transition: background-color 0.2s ease-in;
+
+    &-si {
+        background-color: $finn;
+        
+        &:hover {
+            background-color: $finnDark;
+        }
+    }
+    &-no {
+        background-color: $princesa;
+        
+        &:hover {
+            background-color: $princesaDark;
+        }
+    }
+}
+%flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+%modal {
+    position: fixed;
+    z-index: $nivelMax;
+    top: 0;
+    
+    
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.945);
+    // background-color: $jake;
+}
+%contenido-modal {
+    /* comentario */
+    background-color: $jake;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    @extend %flex-center;
+    flex-direction: column;
+}
+%ojos {
+    background-color: $dark;
+    height: 200px;
+    width: 200px;
+    @extend %flex-center;
+    
+    border-radius: 50%;
+    overflow: hidden;
+}
+%pupilas {
+    background-color: $light;
+    height: calc((var(--puntoMedio) * 2) * 1px);
+    width: calc((var(--puntoMedio) * 2) * 1px);
+    border-radius: 50%;
+}
+
+// Estilo especificos
+.modal-inicio {
+    @extend %modal;
+    padding-top: 20px;
+    left: 0;
+    padding-left: 20px;
+    text-align: center;
+    @extend %flex-center;
+
+    transition: opacity 2s;
+    opacity: $visibleModalInicio;
+    display: $displayModalInicio;
+    // opacity: 1;
+    // display: block;
+
+    &__contenido {
+        @extend %contenido-modal;
+        transform: rotate(-20deg);
+
+        h1 {
+            padding: 0 50px;
+        }
+        span {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    }
+}
+.modal-fin {
+    @extend %modal;
+    right: 0;
+    @extend %contenido-modal;
+    text-align: center;
+    margin-top: 50px ;
+    margin-right: 50px;
+    width: 300px;
+    height: 300px;
+    box-shadow: 0px 20px 20px -15px $dark;
+    // transform: rotate(20deg);
+
+    transition: transform 2s;
+    transform: rotate(20deg) scale($escalaModalFin);
+
+    h1 {
+        margin: 0;
+    }
+    span {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+}
+
+
+
+.caracolito {
+    display: block;
+    width:  calc(var(--tamanioCaracolito) * 1px);
+    height: calc(var(--tamanioCaracolito) * 1px);
+    // background-color: tomato;
+    position: absolute;
+    z-index: $nivelMin;
+    top: calc(var(--caracolitoY) * 1px);
+    left: calc(var(--caracolitoX) * 1px);
+
+    transition: transform .5s ease-in-out, opacity 2s ease-in-out;
+    // transition: transform opacity 3s ease-in-out;
+    opacity: $visible;
+    transform: scale($escalaCaracolito);
+    // transform:  translateX(calc(var(--caracolitoX) * 1px)) 
+    //             translateY(calc(var(--caracolitoY) * 1px));
+}
+
+
+.carita {
+    // border: 1px solid rgba(0, 0, 0, 0.445);
+    box-shadow: 0px -10px 20px -17px $dark;
+    @extend %flex-center;
+    
+    
+
+    width:  450px;
+    height: 450px;
+    padding: 30px 30px 0;
+    margin-bottom: -9vh;
+    bottom: 0;
+    border-radius: 220px;
+
+    flex-direction: column;
+
+    position: relative;
+
+    transition: transform 1s ease-in-out;
+    transform: rotate(var(--vueltasCara));
+    cursor: pointer;
+}
+
+.ojos {
+    display: flex;
+    margin-bottom: -150px;
+    transition: transform .2s ease-in-out;
+    transform: scale($escala);
+    // &:hover {
+    //     transform: scale($escala);
+        
+    // }
+    
+    .ojo-izq {
+        @extend %ojos;
+        margin-right: 2rem;
+        
+        &__pupila {
+            @extend %pupilas;
+            transform:  translateX(calc(var(--xIzq) * 1px)) 
+                        translateY(calc(var(--yIzq) * 1px));
+        }
+    }
+    .ojo-der {
+        @extend %ojos;
+        margin-left: 0;
+        &__pupila {
+            @extend %pupilas;
+            transform:  translateX(calc(var(--xDer) * 1px)) 
+                        translateY(calc(var(--yDer) * 1px));
+        }
+    }
+
+    
+}
+.bigote {
+    overflow: hidden;
+    position: relative;
+    z-index: $nivelMed;
+
+    transition: transform .5s ease-in-out;
+    transform: rotate(var(--vueltasBigote));
+    cursor: pointer;
+}
