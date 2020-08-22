@@ -1,13 +1,12 @@
 // imports
 @font-face {
     font-family: 'Adventure Time';
-    src: url('../../font/Adventure\ Time\ Logo.ttf');
+    src: url('../font/Adventure\ Time\ Logo.ttf');
 }
 // Reset
 html {
     box-sizing: border-box;
     font-size: 62.5%;
-    // background-color: $dark;
     scroll-behavior: smooth;
 }
 

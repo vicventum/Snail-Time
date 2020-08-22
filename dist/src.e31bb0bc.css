@@ -1,0 +1,378 @@
+:root {
+  --f-adventure: "Adventure Time";
+  --f-impact: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --jake: hsl(51, 100%, 50%);
+  --finn: hsl(198, 71%, 75%);
+  --finnDark: hsl(198, 100%, 75%);
+  --princess: hsl(347, 87%, 65%);
+  --princessDark: hsl(347, 100%, 56%);
+  --tongue: rgb(255, 49, 49);
+  --borderTongue: rgb(177, 35, 35);
+  --dark: #000;
+  --light: #fff;
+  --levelMax: 1000;
+  --levelMid: 100;
+  --levelMin: 10;
+  --xL: 0;
+  --yL: 0;
+  --xR: 0;
+  --yR: 0;
+  --scale: 1;
+  --turnsNose: 0turn;
+  --turnsFace: 0turn;
+  --halfPoint: 37;
+  --widthFace: 27rem;
+  --heightFace: 24rem;
+  --borderFace: 12rem;
+  --topEyes: 20%;
+  --eyeSize: 10rem;
+  --spacingEyes: 2rem;
+  --sizeNose: 90%;
+  --topNose: 15%;
+  --topTongue: 30%;
+  --heightTongue: 95%;
+  --widthTongue: 34%;
+  --borderRadiusTongue: 40%;
+  --sizeSnail: 100;
+  --visible: 0.0;
+  --snailX: 0;
+  --snailY: 0;
+  --scaleSnail: 1;
+  --visibleModalStart: 1;
+  --displayModalStart: block;
+  --scalModalEnd: 0;
+}
+@media (min-width: 300px) {
+  :root {
+    --widthFace: 27rem;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --halfPoint: calc(37 + 12);
+    --widthFace: calc(27rem + (27rem * 0.30));
+    --heightFace: calc(24rem + (24rem * 0.35));
+    --borderFace: calc(12rem + (12rem * 0.35));
+    --eyeSize: calc(10rem + (10rem * 0.30));
+    --eyeSize: 13rem;
+    --spacingEyes: calc(2rem + 3%);
+    --sizeNose: 85%;
+    --topNose: calc(15% + (15% * 0.30));
+    --topTongue: calc(30% + (30% * 0.20));
+    --borderRadiusTongue: calc(40% + (40% * 0.20));
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --halfPoint: calc(37 + 30);
+    --widthFace: calc(27rem + (27rem * 0.60));
+    --heightFace: calc(24rem + (24rem * 0.65));
+    --borderFace: calc(12rem + (12rem * 0.65));
+    --eyeSize: calc(10rem + (10rem * 0.60));
+    --eyeSize: 16rem;
+    --spacingEyes: calc(2rem + 4%);
+    --topNose: calc(15% + (15% * 0.60));
+    --topTongue: calc(30% + (30% * 0.40));
+    --heightTongue: calc(95% + (95% * -0.05));
+    --widthTongue: calc(34% + (34% * -0.20));
+    --borderRadiusTongue: calc(40% + (40% * 0.10));
+  }
+}
+@font-face {
+  font-family: "Adventure Time";
+  src: url("/Adventure Time Logo.f5dfbbde.ttf");
+}
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--f-adventure, sans-serif);
+  background-color: #ffda00;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+
+.nose, .nose-container, .eye, .face, .modal--content, .modal--start {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.u-none {
+  display: none;
+}
+.u-invisible {
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .u-hide-for-mobile {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .u-hide-for-desktop {
+    display: none !important;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.4rem 1.3rem;
+  margin-right: 0.5rem;
+  font-size: 2rem;
+  color: var(--light);
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: background-color 0.2s ease-in;
+  -o-transition: background-color 0.2s ease-in;
+  transition: background-color 0.2s ease-in;
+}
+.btn--yes {
+  background-color: var(--finn);
+}
+.btn--yes:hover {
+  background-color: var(--finnDark);
+}
+.btn--no {
+  background-color: var(--princess);
+}
+.btn--no:hover {
+  background-color: var(--princessDark);
+}
+
+.modal {
+  position: fixed;
+  z-index: var(--levelMax);
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.945);
+}
+.modal--start {
+  padding-top: 20px;
+  padding-left: 20px;
+  left: 0;
+  text-align: center;
+  -webkit-transition: opacity 2s;
+  -o-transition: opacity 2s;
+  transition: opacity 2s;
+  opacity: var(--visibleModalStart);
+  display: var(--displayModalStart);
+}
+.modal--start__content {
+  -webkit-transform: rotate(-20deg);
+      -ms-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+}
+.modal--start__content h1 {
+  padding: 0 50px;
+}
+.modal--start__content span {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.modal--end {
+  right: 0;
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 50px;
+  width: 300px;
+  height: 300px;
+  -webkit-box-shadow: 0px 20px 20px -15px var(--dark);
+          box-shadow: 0px 20px 20px -15px var(--dark);
+  -webkit-transition: -webkit-transform 2s;
+  transition: -webkit-transform 2s;
+  -o-transition: transform 2s;
+  transition: transform 2s;
+  transition: transform 2s, -webkit-transform 2s;
+  -webkit-transform: rotate(20deg) scale(var(--scaleModalEnd));
+      -ms-transform: rotate(20deg) scale(var(--scaleModalEnd));
+          transform: rotate(20deg) scale(var(--scaleModalEnd));
+}
+.modal--end h1 {
+  margin: 0;
+}
+.modal--end span {
+  font-family: var(--f-impact);
+}
+.modal--content {
+  background-color: var(--jake);
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.snail {
+  display: block;
+  width: calc(var(--sizeSnail) * 1px);
+  height: calc(var(--sizeSnail) * 1px);
+  position: absolute;
+  z-index: var(--levelMin);
+  top: calc(var(--snailY) * 1px);
+  left: calc(var(--snailX) * 1px);
+  -webkit-transition: opacity 2s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  transition: opacity 2s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  -o-transition: transform 0.5s ease-in-out, opacity 2s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 2s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 2s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  opacity: var(--visible);
+  -webkit-transform: scale(var(--scaleSnail));
+      -ms-transform: scale(var(--scaleSnail));
+          transform: scale(var(--scaleSnail));
+}
+
+.face {
+  position: relative;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: var(--widthFace);
+  height: var(--heightFace);
+  padding: 3rem 3rem 0;
+  bottom: 0;
+  border-top-left-radius: var(--borderFace);
+  border-top-right-radius: var(--borderFace);
+  -webkit-box-shadow: 0px -10px 20px -17px var(--dark);
+          box-shadow: 0px -10px 20px -17px var(--dark);
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  -o-transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+  -webkit-transform: rotate(var(--turnsFace));
+      -ms-transform: rotate(var(--turnsFace));
+          transform: rotate(var(--turnsFace));
+}
+@media (min-width: 1248px) {
+  .face {
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+}
+
+.eyes {
+  position: absolute;
+  top: var(--topEyes);
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  -o-transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  -webkit-transform: scale(var(--scale));
+      -ms-transform: scale(var(--scale));
+          transform: scale(var(--scale));
+}
+
+.eye {
+  background-color: var(--dark);
+  height: var(--eyeSize);
+  width: var(--eyeSize);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.eye--left {
+  margin-right: var(--spacingEyes);
+}
+.eye--left__pupil {
+  -webkit-transform: translateX(calc(var(--xL) * 1px)) translateY(calc(var(--yL) * 1px));
+      -ms-transform: translateX(calc(var(--xL) * 1px)) translateY(calc(var(--yL) * 1px));
+          transform: translateX(calc(var(--xL) * 1px)) translateY(calc(var(--yL) * 1px));
+}
+.eye--right__pupil {
+  -webkit-transform: translateX(calc(var(--xR) * 1px)) translateY(calc(var(--yR) * 1px));
+      -ms-transform: translateX(calc(var(--xR) * 1px)) translateY(calc(var(--yR) * 1px));
+          transform: translateX(calc(var(--xR) * 1px)) translateY(calc(var(--yR) * 1px));
+}
+
+.pupils {
+  background-color: var(--light);
+  height: calc((var(--halfPoint) * 2) * 1px);
+  width: calc((var(--halfPoint) * 2) * 1px);
+  border-radius: 50%;
+}
+
+.nose {
+  position: relative;
+  top: var(--topNose);
+  z-index: var(--levelMid);
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  -o-transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  -webkit-transform: rotate(var(--turnsNose));
+      -ms-transform: rotate(var(--turnsNose));
+          transform: rotate(var(--turnsNose));
+  cursor: pointer;
+}
+.nose-container {
+  position: relative;
+  width: 100%;
+}
+.nose img {
+  width: var(--sizeNose);
+}
+
+.tongue {
+  position: absolute;
+  top: var(--topTongue);
+  height: var(--heightTongue);
+  width: var(--widthTongue);
+  background: var(--tongue);
+  border: 3px solid var(--borderTongue);
+  border-bottom-right-radius: var(--borderRadiusTongue);
+  border-bottom-left-radius: var(--borderRadiusTongue);
+}
+
+/*# sourceMappingURL=/src.e31bb0bc.css.map */

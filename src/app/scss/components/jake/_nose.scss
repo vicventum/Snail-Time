@@ -1,9 +1,24 @@
 .nose {
-    overflow: hidden;
+    &-container {
+        position: relative;
+        @extend %flex-center;
+
+        width: 100%;
+    }
+
     position: relative;
+    @extend %flex-center;
+    
+
+    top: var(--topNose);
     z-index: var(--levelMid);
+    overflow: hidden;
 
     transition: transform .5s ease-in-out;
     transform: rotate(var(--turnsNose));
     cursor: pointer;
+
+    img {
+        width: var(--sizeNose);
+    }
 }

@@ -1,22 +1,33 @@
 .face {
-    // border: 1px solid rgba(0, 0, 0, 0.445);
-    box-shadow: 0px -10px 20px -17px var(--dark);
+    position: relative;
+    align-self: flex-end;
+
+    @include media('>=desktop') {
+        align-self: center;
+    }
+
     @extend %flex-center;
-    
-    
-
-    width:  450px;
-    height: 450px;
-    padding: 30px 30px 0;
-    margin-bottom: -9vh;
-    bottom: 0;
-    border-radius: 220px;
-
     flex-direction: column;
 
-    position: relative;
+    
+    width:  var(--widthFace);
+    height: var(--heightFace);
+    
+    padding: 3rem 3rem 0;
+    bottom: 0;
+
+
+    border-top-left-radius: var(--borderFace);
+    border-top-right-radius: var(--borderFace);
+    // border-radius: 220px;
+
+    
+
+    // border: 1px solid rgba(0, 0, 0, 0.445);
+    box-shadow: 0px -10px 20px -17px var(--dark);
+    cursor: pointer;
+    
 
     transition: transform 1s ease-in-out;
     transform: rotate(var(--turnsFace));
-    cursor: pointer;
 }

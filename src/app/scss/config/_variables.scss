@@ -1,3 +1,21 @@
+$halfPoint: 37;
+// Face 
+$widthFace: 27rem;
+$heightFace: 24rem;
+$borderFace: 12rem;
+// Eyes
+$topEyes: 20%;
+$eyeSize: 10rem;
+$spacingEyes: 2rem;
+// Nose
+$sizeNose: 90%;
+$topNose: 15%;
+$topTongue: $topNose + 15%;
+// Tongue
+$heightTongue: 95%;
+$widthTongue: 34%;
+$borderRadiusTongue: 40%;
+
 // Variables
 :root {
   // Fuente
@@ -10,6 +28,10 @@
   --finnDark: hsl(198, 100%, 75%);
   --princess: hsl(347, 87%, 65%);
   --princessDark: hsl(347, 100%, 56%);
+
+  --tongue: rgb(255, 49, 49);
+  --borderTongue: rgb(177, 35, 35);
+
   --dark: #000;
   --light: #fff;
 
@@ -26,9 +48,99 @@
   --scale: 1;
   --turnsNose: 0turn;
   --turnsFace: 0turn;
-  --halfPoint: 75;
 
-  // Variables for Caracolito
+  --halfPoint: #{$halfPoint};
+  
+  // Face
+  --widthFace:  #{$widthFace};
+  --heightFace: #{$heightFace};
+  --borderFace: #{$borderFace};
+
+  // Eyes
+  --topEyes: #{$topEyes};
+  --eyeSize: #{$eyeSize};
+  --spacingEyes: #{$spacingEyes};
+
+  // Nose
+  --sizeNose: #{$sizeNose};
+  --topNose: #{$topNose};
+  --topTongue: #{$topTongue};
+
+  // Tongue
+  --heightTongue: #{$heightTongue};
+  --widthTongue: #{$widthTongue};
+  --borderRadiusTongue: #{$borderRadiusTongue};
+
+  
+
+  @include media('>=300px') {
+    --widthFace: 27rem;
+  }
+
+  @include media('>=tablet') {
+    --halfPoint:  calc(#{$halfPoint} + 12);
+
+    --widthFace:  calc(#{$widthFace} + (#{$widthFace} * 0.30));
+    --heightFace: calc(#{$heightFace} + (#{$heightFace} * 0.35));
+    --borderFace: calc(#{$borderFace} + (#{$borderFace} * 0.35));
+
+    // --topEyes: calc(#{$topEyes} + (#{$topEyes} * 0.30));
+    --eyeSize: calc(#{$eyeSize} + (#{$eyeSize} * 0.30));
+    --eyeSize: 13rem;
+    --spacingEyes: calc(#{$spacingEyes} + 3%);
+
+    --sizeNose: 85%;
+    --topNose: calc(#{$topNose} + (#{$topNose} * 0.30));
+    --topTongue: calc(#{$topTongue} + (#{$topTongue} * 0.20));
+    
+    // --heightTongue: calc(#{$heightTongue} + (#{$heightTongue} * 0.30));
+    // --widthTongue: calc(#{$widthTongue} + (#{$widthTongue} * 0.30));
+    --borderRadiusTongue: calc(#{$borderRadiusTongue} + (#{$borderRadiusTongue} * 0.20));
+  }
+
+  @include media('>=laptop') {
+    --halfPoint:  calc(#{$halfPoint} + 30);
+
+    --widthFace:  calc(#{$widthFace} + (#{$widthFace} * 0.60));
+    --heightFace: calc(#{$heightFace} + (#{$heightFace} * 0.65));
+    --borderFace: calc(#{$borderFace} + (#{$borderFace} * 0.65));
+
+    // --topEyes: calc(#{$topEyes} + (#{$topEyes} * 0.60));
+    --eyeSize: calc(#{$eyeSize} + (#{$eyeSize} * 0.60));
+    --eyeSize: 16rem;
+    --spacingEyes: calc(#{$spacingEyes} + 4%);
+
+    // --sizeNose: 95%;
+    --topNose: calc(#{$topNose} + (#{$topNose} * 0.60));
+    --topTongue: calc(#{$topTongue} + (#{$topTongue} * 0.40));
+    
+    --heightTongue: calc(#{$heightTongue} + (#{$heightTongue} * -0.05));
+    --widthTongue: calc(#{$widthTongue} + (#{$widthTongue} * -0.20));
+    --borderRadiusTongue: calc(#{$borderRadiusTongue} + (#{$borderRadiusTongue} * 0.10));
+  }
+
+  @include media('>=desktop') {
+    // --halfPoint:  calc(#{$halfPoint} + 35);
+
+    // --widthFace:  calc(#{$widthFace} + (#{$widthFace} * 0.60));
+    // --heightFace: calc(#{$heightFace} + (#{$heightFace} * 0.65));
+    // --borderFace: calc(#{$borderFace} + (#{$borderFace} * 0.65));
+
+    // // --topEyes: calc(#{$topEyes} + (#{$topEyes} * 0.60));
+    // --eyeSize: calc(#{$eyeSize} + (#{$eyeSize} * 0.60));
+    // --eyeSize: 16rem;
+    // // --spacingEyes: calc(#{$spacingEyes} + 6%);
+
+    // --sizeNose: 65%;
+    // --topNose: calc(#{$topNose} + (#{$topNose} * 0.60));
+    // --topTongue: calc(#{$topTongue} + (#{$topTongue} * 0.40));
+    
+    // --heightTongue: calc(#{$heightTongue} + (#{$heightTongue} * 0.05));
+    // --widthTongue: calc(#{$widthTongue} + (#{$widthTongue} * -0.20));
+    // --borderRadiusTongue: calc(#{$borderRadiusTongue} + (#{$borderRadiusTongue} * 0.10));
+  }
+
+  // Variables for Snail
   --sizeSnail: 100;
   --visible: 0.0;
   --snailX: 0;

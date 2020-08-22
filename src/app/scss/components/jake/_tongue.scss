@@ -1,7 +1,12 @@
 .tongue {
-    height: 200px;
     position: absolute;
-    width: 117px;
-    background: red;
-    top: 215px;
+    top: var(--topTongue);
+
+    height: var(--heightTongue);
+    width: var(--widthTongue);
+    background: var(--tongue);
+    border: 3px solid var(--borderTongue);
+
+    border-bottom-right-radius: var(--borderRadiusTongue);
+    border-bottom-left-radius: var(--borderRadiusTongue);
 }
