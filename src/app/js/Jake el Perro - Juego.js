@@ -38,7 +38,7 @@ const rootStyles = document.documentElement.style,
     }
 const puntoMedio = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue("--puntoMedio")),
     tamanioCaracolito = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue("--tamanioCaracolito"))
-const tamanioCara = cara.getBoundingClientRect()
+const h = cara.getBoundingClientRect()
 let distXIzq=0,
     distYIzq=0,
     distXDer=0,

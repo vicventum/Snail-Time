@@ -4,14 +4,14 @@
     height: calc(var(--sizeSnail) * 1px);
     // background-color: tomato;
     position: absolute;
-    z-index: $nivelMin;
+    z-index: var(--levelMin);
     top: calc(var(--snailY) * 1px);
     left: calc(var(--snailX) * 1px);
 
     transition: transform .5s ease-in-out, opacity 2s ease-in-out;
     // transition: transform opacity 3s ease-in-out;
-    opacity: $visible;
-    transform: scale($escalaCaracolito);
+    opacity: var(--visible);
+    transform: scale(var(--scaleSnail));
     // transform:  translateX(calc(var(--caracolitoX) * 1px)) 
     //             translateY(calc(var(--caracolitoY) * 1px));
 }

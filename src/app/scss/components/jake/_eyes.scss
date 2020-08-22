@@ -1,6 +1,13 @@
 .eyes {
+    position: absolute;
+    top: var(--topEyes);
+
+    width: 100%;
+    // height: 45%;
+
     display: flex;
-    margin-bottom: -150px;
+    justify-content: center;
+
     transition: transform .2s ease-in-out;
     transform: scale(var(--scale));
     // &:hover {
@@ -9,36 +16,35 @@
     // }
     
 }
-.pupils{
-    background-color: $light;
-    height: calc((var(--puntoMedio) * 2) * 1px);
-    width: calc((var(--puntoMedio) * 2) * 1px);
-    border-radius: 50%;
-}
 .eye {
     background-color: var(--dark);
-    height: 200px;
-    width: 200px;
+    height: var(--eyeSize);
+    width: var(--eyeSize);
+
     @extend %flex-center;
     
     border-radius: 50%;
     overflow: hidden;
 
     &--left {
-        margin-right: 2rem;
+        margin-right: var(--spacingEyes);
         
         &__pupil {
-            @extend %pupilas;
             transform:  translateX(calc(var(--xL) * 1px)) 
                         translateY(calc(var(--yL) * 1px));
         }
     }
     &--right {
-        margin-left: 0;
+        
         &__pupil {
-            @extend %pupilas;
             transform:  translateX(calc(var(--xR) * 1px)) 
                         translateY(calc(var(--yR) * 1px));
         }
     }
+}
+.pupils{
+    background-color: var(--light);
+    height: calc((var(--halfPoint) * 2) * 1px);
+    width: calc((var(--halfPoint) * 2) * 1px);
+    border-radius: 50%;
 }
