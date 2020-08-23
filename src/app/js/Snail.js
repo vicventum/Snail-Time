@@ -16,6 +16,7 @@ export class Snail {
         // Insert classes and attributes
         snail.classList.add('snail')
         snail.id = 'snail'
+        // FIXME: Hacer que la ruta de la imagen sea dinamica
         snail.setAttribute('src', 'snail.13182426.png')
         e.target.body.appendChild(snail)
 
