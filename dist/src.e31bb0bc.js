@@ -444,6 +444,7 @@ var Snail = /*#__PURE__*/function () {
     (0, _classCallCheck2.default)(this, Snail);
     (0, _defineProperty2.default)(this, "sizeSnail", parseInt(window.getComputedStyle(document.documentElement).getPropertyValue("--sizeSnail")));
     (0, _defineProperty2.default)(this, "rootStyles", document.documentElement.style);
+    (0, _defineProperty2.default)(this, "ruteToImgSnail", document.getElementById('ruteToImgSnail').getAttribute('src'));
     (0, _defineProperty2.default)(this, "snail", void 0);
     (0, _defineProperty2.default)(this, "xSnail", void 0);
     (0, _defineProperty2.default)(this, "ySnail", void 0);
@@ -456,7 +457,7 @@ var Snail = /*#__PURE__*/function () {
 
       snail.classList.add('snail');
       snail.id = 'snail';
-      snail.setAttribute('src', 'snail.13182426.png');
+      snail.setAttribute('src', this.ruteToImgSnail);
       e.target.body.appendChild(snail); // Locate snail
 
       this.locateSnail();
@@ -613,7 +614,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65445" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55900" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
