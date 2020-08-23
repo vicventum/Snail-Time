@@ -1,5 +1,6 @@
 export class Jake {
     rootStyles = document.documentElement.style
+    getRootStyles = window.getComputedStyle(document.documentElement)
     sizeFace = face.getBoundingClientRect()
     halfPoint = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue("--halfPoint"))
     
@@ -85,9 +86,13 @@ export class Jake {
         const nTurns = this.numberTurns()
         console.log(this.sizeFace)
 
-        if (id === 'nose') 
-             this.rootStyles.setProperty('--turnsNose', `${nTurns}turn`)
-        else this.rootStyles.setProperty('--turnsFace', `${nTurns}turn`)
+        if (id === 'nose') {
+            if (this.getRootStyles.getPropertyValue('--topTongue') !== '30%')
+                this.rootStyles.setProperty('--topTongue', `30%`)
+            else
+                this.rootStyles.setProperty('--topTongue', `82%`)
+
+        } else this.rootStyles.setProperty('--turnsFace', `${nTurns}turn`)
     }
 
     numberTurns() {

@@ -9,11 +9,11 @@ $spacingEyes: 2rem;
 // Nose
 $sizeNose: 90%;
 $topNose: 15%;
-$topTongue: $topNose + 15%; // Close: 10%
+$topTongue: 82%; // Close: 10%
 // Tongue
-$heightTongue: 95%; // Close: 60%
+$heightTongue: 50%; // Close: 60%
 $widthTongue: 34%;
-$borderRadiusTongue: 40%;
+$borderRadiusTongue: 50%;
 
 // Variables
 :root {
@@ -29,7 +29,7 @@ $borderRadiusTongue: 40%;
   --princessDark: hsl(347, 100%, 56%);
 
   --tongue: rgb(255, 49, 49);
-  --borderTongue: rgb(177, 35, 35);
+  --borderTongue: rgb(145, 31, 31);
 
   --dark: #000;
   --light: #fff;
@@ -97,6 +97,7 @@ $borderRadiusTongue: 40%;
     --displayModalStart: block;
     --sizeSnail: 70;
     --halfPoint: 55;
+    --tongueSizeFont:  3rem;
 
     --widthFace:  calc(#{$widthFace} + (#{$widthFace} * 0.30));
     --heightFace: calc(#{$heightFace} + (#{$heightFace} * 0.35));
@@ -109,10 +110,10 @@ $borderRadiusTongue: 40%;
 
     --sizeNose: 85%;
     --topNose: calc(#{$topNose} + (#{$topNose} * 0.30));
-    --topTongue: calc(#{$topTongue} + (#{$topTongue} * 0.20));
+    // --topTongue: calc(#{$topTongue} + (#{$topTongue} * 0.20));
     
     // --heightTongue: calc(#{$heightTongue} + (#{$heightTongue} * 0.30));
-    // --widthTongue: calc(#{$widthTongue} + (#{$widthTongue} * 0.30));
+    --widthTongue: calc(#{$widthTongue} + (#{$widthTongue} * -0.10));
     --borderRadiusTongue: calc(#{$borderRadiusTongue} + (#{$borderRadiusTongue} * 0.20));
   }
 
@@ -122,7 +123,7 @@ $borderRadiusTongue: 40%;
     --sizeCircleModal:  30rem;
     --sizeFont:  3.2rem;
     --secondSizeFont:  2.5rem;
-    --tongueSizeFont:  3rem;
+    
 
     --widthFace:  calc(#{$widthFace} + (#{$widthFace} * 0.60));
     --heightFace: calc(#{$heightFace} + (#{$heightFace} * 0.65));
@@ -135,9 +136,9 @@ $borderRadiusTongue: 40%;
 
     // --sizeNose: 95%;
     --topNose: calc(#{$topNose} + (#{$topNose} * 0.60));
-    --topTongue: calc(#{$topTongue} + (#{$topTongue} * 0.40));
+    // --topTongue: calc(#{$topTongue} + (#{$topTongue} * 0.40));
     
-    --heightTongue: calc(#{$heightTongue} + (#{$heightTongue} * -0.05));
+    // --heightTongue: calc(#{$heightTongue} + (#{$heightTongue} * -0.05));
     --widthTongue: calc(#{$widthTongue} + (#{$widthTongue} * -0.20));
     --borderRadiusTongue: calc(#{$borderRadiusTongue} + (#{$borderRadiusTongue} * 0.10));
   }
