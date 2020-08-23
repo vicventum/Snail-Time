@@ -41,6 +41,7 @@ $borderRadiusTongue: 40%;
   --levelMin: 10;
 
   --sizeFont: 2.7rem;
+  --secondSizeFont: 2rem;
 
   // Variables for modals
   --visibleModalStart: 1;
@@ -112,6 +113,7 @@ $borderRadiusTongue: 40%;
     --halfPoint:  calc(#{$halfPoint} + 30);
     --sizeCircleModal:  30rem;
     --sizeFont:  3.2rem;
+    --secondSizeFont:  2.5rem;
 
     --widthFace:  calc(#{$widthFace} + (#{$widthFace} * 0.60));
     --heightFace: calc(#{$heightFace} + (#{$heightFace} * 0.65));
