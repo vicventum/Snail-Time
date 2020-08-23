@@ -255,12 +255,17 @@ var Game = /*#__PURE__*/function () {
     (0, _defineProperty2.default)(this, "modalStart", document.getElementById('modalStart'));
     (0, _defineProperty2.default)(this, "counter", document.getElementById('counter'));
     (0, _defineProperty2.default)(this, "score", document.getElementById('score'));
-    (0, _defineProperty2.default)(this, "maxScore", document.getElementById('maxScore'));
+    (0, _defineProperty2.default)(this, "maxScoreElement", document.getElementById('maxScore'));
     (0, _defineProperty2.default)(this, "count", 0);
     (0, _defineProperty2.default)(this, "finalCount", void 0);
   }
 
   (0, _createClass2.default)(Game, [{
+    key: "checkStorage",
+    value: function checkStorage() {
+      if (!localStorage.maxScore) localStorage.maxScore = 999999999999;
+    }
+  }, {
     key: "blurModal",
     value: function blurModal() {
       var _this = this;
@@ -285,6 +290,11 @@ var Game = /*#__PURE__*/function () {
     value: function endGame() {
       this.finalCount = this.count;
       this.score.textContent = this.finalCount;
+
+      if (this.finalCount < localStorage.maxScore) {
+        localStorage.maxScore = this.finalCount;
+        this.maxScoreElement.textContent = "".concat(localStorage.maxScore, "!!");
+      } else this.maxScoreElement.textContent = localStorage.maxScore;
     }
   }, {
     key: "restartGame",
@@ -498,11 +508,16 @@ var snail; // Listeners ========================
 
 addEventListener('DOMContentLoaded', blurModal);
 addEventListener('DOMContentLoaded', createSnail);
+addEventListener('DOMContentLoaded', checkStorage);
 addEventListener('mousemove', moveEyes);
 addEventListener('click', jumpEyes);
 addEventListener('click', sumCounter);
 face.addEventListener('click', turn);
 modalEnd.addEventListener('click', restartGame); // Functions ========================
+
+function checkStorage() {
+  _Game.checkStorage();
+}
 
 function blurModal() {
   _Game.blurModal();
