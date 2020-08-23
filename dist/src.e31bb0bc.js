@@ -253,6 +253,8 @@ var Game = /*#__PURE__*/function () {
     (0, _classCallCheck2.default)(this, Game);
     (0, _defineProperty2.default)(this, "rootStyles", document.documentElement.style);
     (0, _defineProperty2.default)(this, "modalStart", document.getElementById('modalStart'));
+    (0, _defineProperty2.default)(this, "counter", document.getElementById('counter'));
+    (0, _defineProperty2.default)(this, "count", 0);
   }
 
   (0, _createClass2.default)(Game, [{
@@ -269,9 +271,17 @@ var Game = /*#__PURE__*/function () {
     }
   }, {
     key: "restartGame",
-    value: function restartGame(e) {
-      if (e.target.id === 'btnYes') location.reload();else if (e.target.id === 'btnNo') this.rootStyles.setProperty('--scaleModalEnd', 0);
-      console.log(e.target.id);
+    value: function restartGame(id) {
+      if (id === 'btnYes') location.reload();else if (id === 'btnNo') this.rootStyles.setProperty('--scaleModalEnd', 0);
+      console.log(id);
+    }
+  }, {
+    key: "sumCounter",
+    value: function sumCounter(id) {
+      if (id === 'canvas') {
+        this.count++;
+        this.counter.textContent = this.count;
+      }
     }
   }]);
   return Game;
@@ -344,8 +354,6 @@ var Jake = /*#__PURE__*/function () {
     key: "distanceTwoPoints",
     value: function distanceTwoPoints(x1, y1, x2, y2) {
       // return Math.floor((Math.floor(Math.sqrt(Math.pow((x2-x1), 2)) + Math.pow((y2-y1), 2))))
-      console.log('->');
-      console.log(x1, y1, x2, y2);
       return Math.sqrt(Math.abs((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
     }
   }, {
@@ -483,6 +491,7 @@ addEventListener('DOMContentLoaded', blurModal);
 addEventListener('DOMContentLoaded', createSnail);
 addEventListener('mousemove', moveEyes);
 addEventListener('click', jumpEyes);
+addEventListener('click', sumCounter);
 face.addEventListener('click', turn);
 modalEnd.addEventListener('click', restartGame); // Functions ========================
 
@@ -491,7 +500,13 @@ function blurModal() {
 }
 
 function restartGame(e) {
-  _Game.restartGame(e);
+  _Game.restartGame(e.target.id);
+}
+
+function sumCounter(e) {
+  console.log(e.target.id);
+
+  _Game.sumCounter(e.target.id);
 } // -------------
 
 

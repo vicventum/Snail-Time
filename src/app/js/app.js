@@ -19,6 +19,7 @@ addEventListener('DOMContentLoaded', blurModal)
 addEventListener('DOMContentLoaded', createSnail)
 addEventListener('mousemove', moveEyes)
 addEventListener('click', jumpEyes)
+addEventListener('click', sumCounter)
 face.addEventListener('click', turn)
 modalEnd.addEventListener('click', restartGame)
 
@@ -27,7 +28,11 @@ function blurModal() {
     _Game.blurModal()
 }
 function restartGame(e) {
-    _Game.restartGame(e)
+    _Game.restartGame(e.target.id)
+}
+function sumCounter(e) {
+    console.log(e.target.id);
+    _Game.sumCounter(e.target.id)
 }
 // -------------
 
