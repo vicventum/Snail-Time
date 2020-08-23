@@ -14,6 +14,7 @@
   --levelMid: 100;
   --levelMin: 10;
   --sizeFont: 2.7rem;
+  --secondSizeFont: 2rem;
   --visibleModalStart: 1;
   --displayModalStart: flex;
   --scalModalEnd: 0;
@@ -70,6 +71,7 @@
     --halfPoint: calc(37 + 30);
     --sizeCircleModal: 30rem;
     --sizeFont: 3.2rem;
+    --secondSizeFont: 2.5rem;
     --widthFace: calc(27rem + (27rem * 0.60));
     --heightFace: calc(24rem + (24rem * 0.65));
     --borderFace: calc(12rem + (12rem * 0.65));
@@ -108,7 +110,7 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: var(--f-adventure, sans-serif);
-  background-color: #ffda00;
+  background-color: var(--jake);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -123,7 +125,7 @@ body {
   cursor: zoom-in;
 }
 
-.nose, .nose-container, .eye, .face, .modal--start__content, .modal {
+.nose, .nose-container, .eye, .face, .modal--end, .modal--content, .modal {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -197,14 +199,7 @@ body {
     --padding: 5rem;
   }
 }
-.modal--start {
-  -webkit-transition: opacity 2s;
-  -o-transition: opacity 2s;
-  transition: opacity 2s;
-  opacity: var(--visibleModalStart);
-  display: var(--displayModalStart);
-}
-.modal--start__content {
+.modal--content {
   width: var(--sizeCircleModal);
   height: var(--sizeCircleModal);
   -webkit-box-orient: vertical;
@@ -213,6 +208,25 @@ body {
           flex-direction: column;
   border-radius: 50%;
   background-color: var(--jake);
+}
+.modal--content h1 {
+  font-size: var(--sizeFont);
+  padding: 0 50px;
+}
+.modal--content h2 {
+  font-size: var(--secondSizeFont);
+}
+.modal--content span {
+  font-family: var(--f-impact);
+}
+.modal--start {
+  -webkit-transition: opacity 2s;
+  -o-transition: opacity 2s;
+  transition: opacity 2s;
+  opacity: var(--visibleModalStart);
+  display: var(--displayModalStart);
+}
+.modal--start__content {
   -webkit-transform: rotate(-10deg);
       -ms-transform: rotate(-10deg);
           transform: rotate(-10deg);
@@ -224,37 +238,69 @@ body {
             transform: rotate(-15deg);
   }
 }
-.modal--start__content h1 {
-  font-size: var(--sizeFont);
-  padding: 0 50px;
-}
-.modal--start__content span {
-  font-family: var(--f-impact);
-}
 .modal--start__content img {
   margin-top: 1rem;
 }
 .modal--end {
-  right: 0;
-  margin-top: 50px;
-  margin-right: 50px;
-  width: 300px;
-  height: 300px;
-  -webkit-box-shadow: 0px 20px 20px -15px var(--dark);
-          box-shadow: 0px 20px 20px -15px var(--dark);
+  --padding: 0rem;
+  position: fixed;
+  z-index: var(--levelMax);
+  top: 0;
+  right: calc(50vw - (var(--sizeCircleModal) / 2));
+  padding-top: var(--padding);
+  padding-right: var(--padding);
   -webkit-transition: -webkit-transform 2s;
   transition: -webkit-transform 2s;
   -o-transition: transform 2s;
   transition: transform 2s;
   transition: transform 2s, -webkit-transform 2s;
-  -webkit-transform: rotate(20deg) scale(var(--scaleModalEnd));
-      -ms-transform: rotate(20deg) scale(var(--scaleModalEnd));
-          transform: rotate(20deg) scale(var(--scaleModalEnd));
+  -webkit-transform: scale(var(--scaleModalEnd));
+      -ms-transform: scale(var(--scaleModalEnd));
+          transform: scale(var(--scaleModalEnd));
 }
-.modal--end h1 {
+@media (min-width: 768px) {
+  .modal--end {
+    right: 0;
+  }
+}
+@media (min-width: 768px) {
+  .modal--end {
+    --padding: 5rem;
+  }
+}
+.modal--end__content {
+  -webkit-box-shadow: 0px 20px 20px -15px var(--dark);
+          box-shadow: 0px 20px 20px -15px var(--dark);
+  -webkit-transform: rotate(10deg);
+      -ms-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+@media (min-width: 768px) {
+  .modal--end__content {
+    -webkit-transform: rotate(15deg);
+        -ms-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+}
+.modal--end__content h2 {
+  margin-bottom: 0.5rem;
+}
+.modal--end__content a {
+  font-size: var(--secondSizeFont);
+}
+.modal--end .score-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.modal--end .score-container h2 {
+  font-size: var(--secondSizeFont);
   margin: 0;
 }
-.modal--end span {
+.modal--end .score-container p {
+  font-size: var(--secondSizeFont);
   font-family: var(--f-impact);
 }
 
