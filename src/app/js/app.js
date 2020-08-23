@@ -17,6 +17,7 @@ let snail
 // Listeners ========================
 addEventListener('DOMContentLoaded', blurModal)
 addEventListener('DOMContentLoaded', createSnail)
+addEventListener('DOMContentLoaded', checkStorage)
 addEventListener('mousemove', moveEyes)
 addEventListener('click', jumpEyes)
 addEventListener('click', sumCounter)
@@ -24,6 +25,9 @@ face.addEventListener('click', turn)
 modalEnd.addEventListener('click', restartGame)
 
 // Functions ========================
+function checkStorage() {
+    _Game.checkStorage()
+}
 function blurModal() {
     _Game.blurModal()
 }
