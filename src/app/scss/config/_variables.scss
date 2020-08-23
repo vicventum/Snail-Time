@@ -81,7 +81,13 @@ $borderRadiusTongue: 40%;
   --widthTongue: #{$widthTongue};
   --borderRadiusTongue: #{$borderRadiusTongue};
 
-  
+  // Variables for Snail
+  --sizeSnail: 45;
+  --visible: 0.0;
+  --snailX: 0;
+  --snailY: 0;
+  --scaleSnail: 1;
+  --scaleModalEnd: 0;
 
   @include media('>=300px') {
     --widthFace: 27rem;
@@ -89,7 +95,8 @@ $borderRadiusTongue: 40%;
 
   @include media('>=tablet') {
     --displayModalStart: block;
-    --halfPoint:  55;
+    --sizeSnail: 70;
+    --halfPoint: 55;
 
     --widthFace:  calc(#{$widthFace} + (#{$widthFace} * 0.30));
     --heightFace: calc(#{$heightFace} + (#{$heightFace} * 0.35));
@@ -110,7 +117,8 @@ $borderRadiusTongue: 40%;
   }
 
   @include media('>=laptop') {
-    --halfPoint:  67;
+    --sizeSnail: 90;
+    --halfPoint: 67;
     --sizeCircleModal:  30rem;
     --sizeFont:  3.2rem;
     --secondSizeFont:  2.5rem;
@@ -155,13 +163,7 @@ $borderRadiusTongue: 40%;
     // --borderRadiusTongue: calc(#{$borderRadiusTongue} + (#{$borderRadiusTongue} * 0.10));
   }
 
-  // Variables for Snail
-  --sizeSnail: 100;
-  --visible: 0.0;
-  --snailX: 0;
-  --snailY: 0;
-  --scaleSnail: 1;
-  --scaleModalEnd: 0;
+  
 
   
   // --displayModalFin: none;

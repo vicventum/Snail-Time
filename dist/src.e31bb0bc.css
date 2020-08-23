@@ -40,7 +40,7 @@
   --heightTongue: 95%;
   --widthTongue: 34%;
   --borderRadiusTongue: 40%;
-  --sizeSnail: 100;
+  --sizeSnail: 45;
   --visible: 0.0;
   --snailX: 0;
   --snailY: 0;
@@ -55,6 +55,7 @@
 @media (min-width: 768px) {
   :root {
     --displayModalStart: block;
+    --sizeSnail: 70;
     --halfPoint: 55;
     --widthFace: calc(27rem + (27rem * 0.30));
     --heightFace: calc(24rem + (24rem * 0.35));
@@ -70,6 +71,7 @@
 }
 @media (min-width: 1024px) {
   :root {
+    --sizeSnail: 90;
     --halfPoint: 67;
     --sizeCircleModal: 30rem;
     --sizeFont: 3.2rem;
