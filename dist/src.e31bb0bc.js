@@ -254,7 +254,10 @@ var Game = /*#__PURE__*/function () {
     (0, _defineProperty2.default)(this, "rootStyles", document.documentElement.style);
     (0, _defineProperty2.default)(this, "modalStart", document.getElementById('modalStart'));
     (0, _defineProperty2.default)(this, "counter", document.getElementById('counter'));
+    (0, _defineProperty2.default)(this, "score", document.getElementById('score'));
+    (0, _defineProperty2.default)(this, "maxScore", document.getElementById('maxScore'));
     (0, _defineProperty2.default)(this, "count", 0);
+    (0, _defineProperty2.default)(this, "finalCount", void 0);
   }
 
   (0, _createClass2.default)(Game, [{
@@ -270,18 +273,24 @@ var Game = /*#__PURE__*/function () {
       });
     }
   }, {
-    key: "restartGame",
-    value: function restartGame(id) {
-      if (id === 'btnYes') location.reload();else if (id === 'btnNo') this.rootStyles.setProperty('--scaleModalEnd', 0);
-      console.log(id);
-    }
-  }, {
     key: "sumCounter",
     value: function sumCounter(id) {
       if (id === 'canvas') {
         this.count++;
         this.counter.textContent = this.count;
       }
+    }
+  }, {
+    key: "endGame",
+    value: function endGame() {
+      this.finalCount = this.count;
+      this.score.textContent = this.finalCount;
+    }
+  }, {
+    key: "restartGame",
+    value: function restartGame(id) {
+      if (id === 'btnYes') location.reload();else if (id === 'btnNo') this.rootStyles.setProperty('--scaleModalEnd', 0);
+      console.log(id);
     }
   }]);
   return Game;
@@ -519,6 +528,8 @@ function createSnail(e) {
 
 function findSnail() {
   _Snail.findSnail(snail);
+
+  _Game.endGame();
 } // -------------
 
 
