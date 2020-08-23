@@ -43,6 +43,8 @@ function createSnail(e) {
 }
 function findSnail() {
     _Snail.findSnail(snail)
+
+    _Game.endGame()
 }
 // -------------
 

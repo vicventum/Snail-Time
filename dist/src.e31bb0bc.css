@@ -70,7 +70,7 @@
 }
 @media (min-width: 1024px) {
   :root {
-    --halfPoint: 70;
+    --halfPoint: 67;
     --sizeCircleModal: 30rem;
     --sizeFont: 3.2rem;
     --secondSizeFont: 2.5rem;
