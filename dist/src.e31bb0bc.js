@@ -327,6 +327,7 @@ var Jake = /*#__PURE__*/function () {
   function Jake() {
     (0, _classCallCheck2.default)(this, Jake);
     (0, _defineProperty2.default)(this, "rootStyles", document.documentElement.style);
+    (0, _defineProperty2.default)(this, "getRootStyles", window.getComputedStyle(document.documentElement));
     (0, _defineProperty2.default)(this, "sizeFace", face.getBoundingClientRect());
     (0, _defineProperty2.default)(this, "halfPoint", parseInt(window.getComputedStyle(document.documentElement).getPropertyValue("--halfPoint")));
     (0, _defineProperty2.default)(this, "eyes", document.getElementById('eyes'));
@@ -400,7 +401,10 @@ var Jake = /*#__PURE__*/function () {
     value: function turn(id) {
       var nTurns = this.numberTurns();
       console.log(this.sizeFace);
-      if (id === 'nose') this.rootStyles.setProperty('--turnsNose', "".concat(nTurns, "turn"));else this.rootStyles.setProperty('--turnsFace', "".concat(nTurns, "turn"));
+
+      if (id === 'nose') {
+        if (this.getRootStyles.getPropertyValue('--topTongue') !== '30%') this.rootStyles.setProperty('--topTongue', "30%");else this.rootStyles.setProperty('--topTongue', "82%");
+      } else this.rootStyles.setProperty('--turnsFace', "".concat(nTurns, "turn"));
     }
   }, {
     key: "numberTurns",

@@ -11,7 +11,7 @@
     
     font-family: var(--f-impact);
     font-size: var(--tongueSizeFont);
-    padding-bottom: .7rem;
+    padding-bottom: 1.1rem;
 
     color: var(--light);
     background: var(--tongue);
@@ -19,4 +19,6 @@
     border: 3px solid var(--borderTongue);
     border-bottom-right-radius: var(--borderRadiusTongue);
     border-bottom-left-radius: var(--borderRadiusTongue);
+
+    transition: top .5s ease-in-out;
 }
