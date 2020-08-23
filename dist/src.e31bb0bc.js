@@ -355,13 +355,33 @@ var Jake = /*#__PURE__*/function () {
     }
   }, {
     key: "jumpEyes",
-    value: function jumpEyes(e, xSnail, ySnail) {
+    value: function jumpEyes(e, xSnail, ySnail, sizeSnail) {
       var _this = this;
 
-      // FIXME: el 50 que se le suma a la distancia debe de ser la mitad del tamanio del snail, por lo que debe de ser calculado dinamicamente
-      var distance = this.distanceTwoPoints(xSnail + 50, ySnail + 50, e.x, e.y);
+      var distance = this.distanceTwoPoints(xSnail + sizeSnail / 2, ySnail + sizeSnail / 2, e.x, e.y);
       console.log(distance, xSnail, ySnail);
-      if (distance < 120) this.rootStyles.setProperty('--scale', 1.6);else if (distance < 500) this.rootStyles.setProperty('--scale', 1.25);else if (distance < 1000) this.rootStyles.setProperty('--scale', 1.13);else if (distance > 1000) this.rootStyles.setProperty('--scale', 1.03);
+      var widthScreen = window.innerWidth;
+      var d1 = 73,
+          d2 = 195,
+          d3 = 320;
+
+      if (widthScreen >= 768 && widthScreen < 1024) {
+        d1 = 105;
+        d2 = 340;
+        d3 = 700;
+      } else if (widthScreen >= 1024 && widthScreen < 1280) {
+        d1 = 110;
+        d2 = 420;
+        d3 = 850;
+      } else if (widthScreen > 1280) {
+        d1 = 115;
+        d2 = 490;
+        d3 = 1000;
+      }
+
+      console.log(d1, d2, d3);
+      console.log(distance + ' <> ' + d1);
+      if (distance < d1) this.rootStyles.setProperty('--scale', 1.7);else if (distance < d2) this.rootStyles.setProperty('--scale', 1.25);else if (distance < d3) this.rootStyles.setProperty('--scale', 1.07);else if (distance > d3) this.rootStyles.setProperty('--scale', 1.015);
       this.eyes.addEventListener('transitionend', function () {
         return _this.rootStyles.setProperty('--scale', 1);
       });
@@ -553,7 +573,7 @@ function moveEyes(e) {
 }
 
 function jumpEyes(e) {
-  _Jake.jumpEyes(e, _Snail.xSnail, _Snail.ySnail);
+  _Jake.jumpEyes(e, _Snail.xSnail, _Snail.ySnail, _Snail.sizeSnail);
 }
 
 function turn(e) {
@@ -593,7 +613,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61055" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65445" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -56,7 +56,7 @@ function moveEyes(e) {
     _Jake.moveEyes(e)
 }
 function jumpEyes(e) {
-    _Jake.jumpEyes(e, _Snail.xSnail, _Snail.ySnail)
+    _Jake.jumpEyes(e, _Snail.xSnail, _Snail.ySnail, _Snail.sizeSnail)
 }
 function turn(e) {
     _Jake.turn(e.target.offsetParent.id)
