@@ -40,6 +40,13 @@ $borderRadiusTongue: 40%;
   --levelMid: 100;
   --levelMin: 10;
 
+  --sizeFont: 2.7rem;
+
+  // Variables for modals
+  --visibleModalStart: 1;
+  --displayModalStart: flex;
+  --scalModalEnd: 0;
+
   // Variables for Jake
   --xL: 0;
   --yL: 0;
@@ -50,6 +57,8 @@ $borderRadiusTongue: 40%;
   --turnsFace: 0turn;
 
   --halfPoint: #{$halfPoint};
+  --sizeCircleModal: 27rem;
+
   
   // Face
   --widthFace:  #{$widthFace};
@@ -78,6 +87,7 @@ $borderRadiusTongue: 40%;
   }
 
   @include media('>=tablet') {
+    --displayModalStart: block;
     --halfPoint:  calc(#{$halfPoint} + 12);
 
     --widthFace:  calc(#{$widthFace} + (#{$widthFace} * 0.30));
@@ -100,6 +110,8 @@ $borderRadiusTongue: 40%;
 
   @include media('>=laptop') {
     --halfPoint:  calc(#{$halfPoint} + 30);
+    --sizeCircleModal:  30rem;
+    --sizeFont:  3.2rem;
 
     --widthFace:  calc(#{$widthFace} + (#{$widthFace} * 0.60));
     --heightFace: calc(#{$heightFace} + (#{$heightFace} * 0.65));
@@ -147,10 +159,7 @@ $borderRadiusTongue: 40%;
   --snailY: 0;
   --scaleSnail: 1;
 
-  // Variables for modals
-  --visibleModalStart: 1;
-  --displayModalStart: block;
-  --scalModalEnd: 0;
+  
   // --displayModalFin: none;
 }
 
