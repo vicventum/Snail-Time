@@ -4,6 +4,8 @@ const _Jake = new Jake()
 export class Snail {
     sizeSnail = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue("--sizeSnail"))
     rootStyles = document.documentElement.style
+    // FIXME: Soluciona el error al buscar la ruta de la imagen debido al Hash aplicado por Parcel al nombre de esta
+    ruteToImgSnail = (document.getElementById('ruteToImgSnail')).getAttribute('src')
     
 
     snail
@@ -16,8 +18,7 @@ export class Snail {
         // Insert classes and attributes
         snail.classList.add('snail')
         snail.id = 'snail'
-        // FIXME: Hacer que la ruta de la imagen sea dinamica
-        snail.setAttribute('src', 'snail.13182426.png')
+        snail.setAttribute('src', this.ruteToImgSnail)
         e.target.body.appendChild(snail)
 
         // Locate snail
