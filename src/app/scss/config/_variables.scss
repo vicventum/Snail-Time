@@ -1,4 +1,3 @@
-$halfPoint: 37;
 // Face 
 $widthFace: 27rem;
 $heightFace: 24rem;
@@ -57,7 +56,7 @@ $borderRadiusTongue: 40%;
   --turnsNose: 0turn;
   --turnsFace: 0turn;
 
-  --halfPoint: #{$halfPoint};
+  --halfPoint: 40;
   --sizeCircleModal: 27rem;
 
   
@@ -89,7 +88,7 @@ $borderRadiusTongue: 40%;
 
   @include media('>=tablet') {
     --displayModalStart: block;
-    --halfPoint:  calc(#{$halfPoint} + 12);
+    --halfPoint:  55;
 
     --widthFace:  calc(#{$widthFace} + (#{$widthFace} * 0.30));
     --heightFace: calc(#{$heightFace} + (#{$heightFace} * 0.35));
@@ -110,7 +109,7 @@ $borderRadiusTongue: 40%;
   }
 
   @include media('>=laptop') {
-    --halfPoint:  calc(#{$halfPoint} + 30);
+    --halfPoint:  70;
     --sizeCircleModal:  30rem;
     --sizeFont:  3.2rem;
     --secondSizeFont:  2.5rem;
@@ -160,6 +159,7 @@ $borderRadiusTongue: 40%;
   --snailX: 0;
   --snailY: 0;
   --scaleSnail: 1;
+  --scaleModalEnd: 0;
 
   
   // --displayModalFin: none;

@@ -25,7 +25,7 @@
   --scale: 1;
   --turnsNose: 0turn;
   --turnsFace: 0turn;
-  --halfPoint: 37;
+  --halfPoint: 40;
   --sizeCircleModal: 27rem;
   --widthFace: 27rem;
   --heightFace: 24rem;
@@ -44,6 +44,7 @@
   --snailX: 0;
   --snailY: 0;
   --scaleSnail: 1;
+  --scaleModalEnd: 0;
 }
 @media (min-width: 300px) {
   :root {
@@ -53,7 +54,7 @@
 @media (min-width: 768px) {
   :root {
     --displayModalStart: block;
-    --halfPoint: calc(37 + 12);
+    --halfPoint: 55;
     --widthFace: calc(27rem + (27rem * 0.30));
     --heightFace: calc(24rem + (24rem * 0.35));
     --borderFace: calc(12rem + (12rem * 0.35));
@@ -68,7 +69,7 @@
 }
 @media (min-width: 1024px) {
   :root {
-    --halfPoint: calc(37 + 30);
+    --halfPoint: 70;
     --sizeCircleModal: 30rem;
     --sizeFont: 3.2rem;
     --secondSizeFont: 2.5rem;
@@ -409,6 +410,11 @@ body {
   top: var(--topNose);
   z-index: var(--levelMid);
   overflow: hidden;
+  cursor: pointer;
+}
+.nose-container {
+  position: relative;
+  width: 100%;
   -webkit-transition: -webkit-transform 0.5s ease-in-out;
   transition: -webkit-transform 0.5s ease-in-out;
   -o-transition: transform 0.5s ease-in-out;
@@ -417,11 +423,6 @@ body {
   -webkit-transform: rotate(var(--turnsNose));
       -ms-transform: rotate(var(--turnsNose));
           transform: rotate(var(--turnsNose));
-  cursor: pointer;
-}
-.nose-container {
-  position: relative;
-  width: 100%;
 }
 .nose img {
   width: var(--sizeNose);
