@@ -4,9 +4,19 @@
 
     height: var(--heightTongue);
     width: var(--widthTongue);
-    background: var(--tongue);
-    border: 3px solid var(--borderTongue);
 
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+    font-family: var(--f-impact);
+    font-size: var(--tongueSizeFont);
+    padding-bottom: .7rem;
+
+    color: var(--light);
+    background: var(--tongue);
+
+    border: 3px solid var(--borderTongue);
     border-bottom-right-radius: var(--borderRadiusTongue);
     border-bottom-left-radius: var(--borderRadiusTongue);
 }
