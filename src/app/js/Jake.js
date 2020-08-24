@@ -84,7 +84,6 @@ export class Jake {
 
     turn(id) {
         const nTurns = this.numberTurns()
-        console.log(this.sizeFace)
 
         if (id === 'nose') {
             if (this.getRootStyles.getPropertyValue('--topTongue') !== '30%')

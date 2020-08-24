@@ -400,7 +400,6 @@ var Jake = /*#__PURE__*/function () {
     key: "turn",
     value: function turn(id) {
       var nTurns = this.numberTurns();
-      console.log(this.sizeFace);
 
       if (id === 'nose') {
         if (this.getRootStyles.getPropertyValue('--topTongue') !== '30%') this.rootStyles.setProperty('--topTongue', "30%");else this.rootStyles.setProperty('--topTongue', "82%");
